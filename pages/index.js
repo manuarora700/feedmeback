@@ -1,7 +1,9 @@
 import Head from 'next/head';
+
 import { Button, Code, Heading, Text } from '@chakra-ui/core';
 
 import { useAuth } from '@/lib/auth';
+
 
 export default function Home() {
   const auth = useAuth();
@@ -12,6 +14,7 @@ export default function Home() {
         <title>Feedmeback</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
 
       <main>
         <Heading>Feedmeback! Integrate Feedbacks on your website</Heading>
@@ -24,6 +27,7 @@ export default function Home() {
           <Button onClick={(e) => auth.signout()}>SignOut</Button>
         ) : (
           <Button onClick={(e) => auth.signinWithGitHub()}>SignIn</Button>
+
         )}
       </main>
     </div>
