@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Heading>Feedmeback!</Heading>
+        <Heading>Feedmeback! Integrate Feedbacks on your website</Heading>
 
         <Text>
           Current user: <Code>{auth.user ? auth.user.email : 'None'}</Code>
