@@ -1,31 +1,33 @@
 import Head from 'next/head';
-import { useAuth } from '../lib/auth';
-import styles from '../styles/Home.module.css';
+
+import { Button, Code, Heading, Text } from '@chakra-ui/core';
+
+import { useAuth } from '@/lib/auth';
+
 
 export default function Home() {
   const auth = useAuth();
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Feedmeback</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Feedmeback!</h1>
 
-        <p className={styles.description}>
-          Current user:{' '}
-          <code className={styles.code}>
-            {auth.user ? auth.user.email : 'None'}
-          </code>
-        </p>
+      <main>
+        <Heading>Feedmeback! Integrate Feedbacks on your website</Heading>
+
+        <Text>
+          Current user: <Code>{auth.user ? auth.user.email : 'None'}</Code>
+        </Text>
 
         {auth.user ? (
-          <button onClick={(e) => auth.signout()}>SignOut</button>
+          <Button onClick={(e) => auth.signout()}>SignOut</Button>
         ) : (
-          <button onClick={(e) => auth.signinWithGitHub()}>SignIn</button>
+          <Button onClick={(e) => auth.signinWithGitHub()}>SignIn</Button>
+
         )}
       </main>
     </div>
