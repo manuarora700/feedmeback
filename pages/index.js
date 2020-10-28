@@ -1,7 +1,9 @@
 import Head from 'next/head';
+
 import { Box, Button, Code, Flex, Heading, Icon, Text } from '@chakra-ui/core';
 
 import { useAuth } from '@/lib/auth';
+
 
 export default function Home() {
   const auth = useAuth();
@@ -14,10 +16,12 @@ export default function Home() {
       justify="center"
       h="100vh"
     >
+
       <Head>
         <title>Feedmeback</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
 
       <Icon color="black" name="logo" size="64px" />
 
@@ -30,5 +34,6 @@ export default function Home() {
         </Button>
       )}
     </Flex>
+
   );
 }
