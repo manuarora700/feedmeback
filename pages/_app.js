@@ -1,4 +1,3 @@
-
 import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 import { Global, css } from '@emotion/core';
 import { AuthProvider } from '@/lib/auth';
@@ -34,7 +33,6 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </AuthProvider>
     </ThemeProvider>
-
   );
 }
 

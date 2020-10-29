@@ -1,5 +1,4 @@
 import Head from 'next/head';
-
 import { Box, Button, Code, Flex, Heading, Icon, Text } from '@chakra-ui/core';
 
 import { useAuth } from '@/lib/auth';
@@ -16,24 +15,23 @@ export default function Home() {
       justify="center"
       h="100vh"
     >
-
       <Head>
         <title>Feedmeback</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
       <Icon color="black" name="logo" size="64px" />
 
       {auth.user ? (
         // <EmptyState />
-        <Button onClick={(e) => auth.signout()}>Sign Out</Button>
+        <Button as="a" href="/dashboard">
+          View Dashboard
+        </Button>
       ) : (
         <Button mt={4} size="sm" onClick={(e) => auth.signinWithGitHub()}>
           Sign In
         </Button>
       )}
     </Flex>
-
   );
 }
