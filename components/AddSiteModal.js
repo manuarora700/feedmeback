@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { mutate } from 'swr';
 
+
 import {
   Modal,
   ModalOverlay,
@@ -60,6 +61,7 @@ const AddSiteModal = ({ children }) => {
     );
 
     onClose();
+
   };
 
   return (
@@ -76,6 +78,7 @@ const AddSiteModal = ({ children }) => {
         }}
       >
         {children}
+
       </Button>
 
       <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
@@ -89,7 +92,9 @@ const AddSiteModal = ({ children }) => {
               <Input
                 ref={initialRef}
                 placeholder="My Site"
+
                 name="name"
+
                 ref={register({
                   required: 'Required'
                 })}

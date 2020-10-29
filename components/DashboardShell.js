@@ -59,6 +59,7 @@ const DashboardShell = ({ children }) => {
         {children}
       </Flex>
     </Box>
+
   );
 };
 

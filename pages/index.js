@@ -3,6 +3,7 @@ import { Box, Button, Code, Flex, Heading, Icon, Text } from '@chakra-ui/core';
 
 import { useAuth } from '@/lib/auth';
 
+
 export default function Home() {
   const auth = useAuth();
 
