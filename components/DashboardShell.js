@@ -1,60 +1,64 @@
 import React from 'react';
 import {
-  Flex,
-  Icon,
-  Link,
-  Stack,
-  Avatar,
+  Box,
   Breadcrumb,
-  Heading,
   BreadcrumbItem,
   BreadcrumbLink,
-  Box,
-  Text,
-  Button
+  Heading,
+  Button,
+  Flex,
+  Link,
+  Avatar,
+  Icon
 } from '@chakra-ui/core';
 
 import { useAuth } from '@/lib/auth';
+import AddSiteModal from './AddSiteModal';
 
 const DashboardShell = ({ children }) => {
-  const auth = useAuth();
+  const { user, signout } = useAuth();
+
   return (
-    <Flex flexDirection="column">
-      <Flex
-        backgroundColor="white"
-        alignItems="center"
-        justifyContent="space-between"
-        py={4}
-        px={8}
-      >
-        <Stack isInline spacing={4} align="center">
-          <Icon name="logo" color="black" size="36px" />
-          <Link>Feedback</Link>
-          <Link>Sites</Link>
-        </Stack>
-        <Flex alignItems="center">
-          <Link mr={4}>Account</Link>
-          <Avatar size="sm" src={auth.user.photoUrl} />
+    <Box backgroundColor="gray.100" h="100vh">
+      <Flex backgroundColor="white" mb={16} w="full">
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          pt={4}
+          pb={4}
+          maxW="1250px"
+          margin="0 auto"
+          w="full"
+          px={8}
+        >
+          <Flex>
+            <Icon name="logo" size="24px" mr={8} />
+            <Link mr={4}>Sites</Link>
+            <Link>Feedback</Link>
+          </Flex>
+          <Flex justifyContent="center" alignItems="center">
+            {user && (
+              <Button variant="ghost" mr={2} onClick={() => signout()}>
+                Log Out
+              </Button>
+            )}
+            <Avatar size="sm" src={user?.photoUrl} />
+          </Flex>
         </Flex>
       </Flex>
-      <Flex backgroundColor="gray.100" p={8} height="100vh">
-        <Flex maxWidth="800px" w="100%" ml="auto" mr="auto" direction="column">
-          <Breadcrumb backgroundColor="blackAlpha.500blackAlpha.500">
-            <Breadcrumb>
-              <BreadcrumbItem isCurrentPage>
-                <BreadcrumbLink color="gray.700" fontSize="sm">
-                  Sites
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-            </Breadcrumb>
-          </Breadcrumb>
-          <Heading color="black" mb={4}>
-            Sites
-          </Heading>
-          {children}
+      <Flex margin="0 auto" direction="column" maxW="1250px" px={8}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <BreadcrumbLink>Sites</BreadcrumbLink>
+          </BreadcrumbItem>
+        </Breadcrumb>
+        <Flex justifyContent="space-between">
+          <Heading mb={8}>My Sites</Heading>
+          <AddSiteModal>+ Add Site</AddSiteModal>
         </Flex>
+        {children}
       </Flex>
-    </Flex>
+    </Box>
   );
 };
 
