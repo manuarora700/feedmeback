@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { mutate } from 'swr';
-
 import {
   Modal,
   ModalOverlay,
