@@ -1,6 +1,5 @@
 import React from 'react';
 import { Heading, Box, Text, Button, Flex } from '@chakra-ui/core';
-
 import AddSiteModal from './AddSiteModal';
 
 const EmptyState = () => (
@@ -19,7 +18,6 @@ const EmptyState = () => (
     <Text mb={4}>Welcome 👋, Let's get started.</Text>
     <AddSiteModal>Add Your First Site</AddSiteModal>
   </Flex>
-
 );
 
 export default EmptyState;
