@@ -49,6 +49,7 @@ const AddSiteModal = ({ children }) => {
     });
 
     // mutate('/api/sites', { sites: [...data.sites], newSite });
+    // mutate('/api/sites', { sites: [...data.sites], newSite });
 
     mutate(
       '/api/sites',
