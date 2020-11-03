@@ -1,5 +1,3 @@
-import Head from 'next/head';
-import { Box, Button, Code, Flex, Heading, Icon, Text } from '@chakra-ui/core';
 import useSWR from 'swr';
 
 import EmptyState from '@/components/EmptyState';
@@ -10,9 +8,9 @@ import { useAuth } from '@/lib/auth';
 import SiteTable from '@/components/SiteTable';
 
 const Dashboard = () => {
-  const auth = useAuth();
+  const { user } = useAuth();
 
-  const { data } = useSWR('/api/sites', fetcher);
+  const { data } = useSWR(user ? ['/api/sites', user.token] : null, fetcher);
 
   if (!data) {
     return (
