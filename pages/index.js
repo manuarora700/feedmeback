@@ -7,6 +7,7 @@ import {
   Heading,
   Icon,
   Link,
+  Stack,
   Text
 } from '@chakra-ui/core';
 
@@ -42,7 +43,7 @@ export default function Home() {
 
       <Icon color="black" name="logo" size="64px" />
 
-      <Text mb={4}>
+      <Text mb={8} fontSize="lg">
         <Text as="span" fontWeight="bold" display="inline">
           Feedmeback
         </Text>
@@ -54,24 +55,64 @@ export default function Home() {
         >
           projects
         </Link>
-        {`. It's the easiest way to add comments or reviews to your static site. You can try it out by logging in.`}
+        {`. It's the best and the easiest way to add comments or reviews to your static site. You can try it out by logging in.`}
       </Text>
 
       {auth.user ? (
         // <EmptyState />
-        <Button as="a" size="sm" fontWeight="medium" href="/dashboard">
+        <Button
+          as="a"
+          backgroundColor="gray.900"
+          color="white"
+          variant="outline"
+          fontWeight="medium"
+          mt={4}
+          size="lg"
+          _hover={{ bg: 'gray.700' }}
+          _active={{
+            bg: 'gray.800',
+            transform: 'scale(0.95)'
+          }}
+          href="/dashboard"
+        >
           View Dashboard
         </Button>
       ) : (
-        <Button
-          mt={4}
-          size="sm"
-          fontWeight="medium"
-          size="sm"
-          onClick={(e) => auth.signinWithGitHub()}
-        >
-          Sign In
-        </Button>
+        <Stack>
+          <Button
+            onClick={(e) => auth.signinWithGitHub()}
+            backgroundColor="gray.900"
+            color="white"
+            fontWeight="medium"
+            leftIcon="github"
+            mt={4}
+            size="lg"
+            _hover={{ bg: 'gray.700' }}
+            _active={{
+              bg: 'gray.800',
+              transform: 'scale(0.95)'
+            }}
+          >
+            Sign In with GitHub
+          </Button>
+          <Button
+            onClick={(e) => auth.signinWithGoogle()}
+            backgroundColor="white"
+            color="gray.900"
+            variant="outline"
+            fontWeight="medium"
+            leftIcon="google"
+            mt={4}
+            size="lg"
+            _hover={{ bg: 'gray.100' }}
+            _active={{
+              bg: 'gray.100',
+              transform: 'scale(0.95)'
+            }}
+          >
+            Sign In with Google
+          </Button>
+        </Stack>
       )}
     </Flex>
   );
